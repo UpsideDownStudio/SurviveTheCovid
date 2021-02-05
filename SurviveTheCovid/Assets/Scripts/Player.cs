@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour
 {
 	public float speedMove;
 	public float jumpPower;
+
+	public IWeapon Weapon;
 
 	private float _gravityForce;
 	private Vector3 _moveVector;
@@ -23,7 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		LookAt();
+		Shoot(LookAt());
         MoveCharacter();
         Jump();
     }
@@ -51,16 +56,36 @@ public class Player : MonoBehaviour
 	    _controller.Move(_moveVector * Time.deltaTime); //Передвижение по направлению
     }
 
-    private void LookAt()
+    private RaycastHit LookAt()
     {
 	    Ray mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit = new RaycastHit();
+
 		if (Physics.Raycast(mousePos, out hit))
 		{
 			Vector3 rot = transform.eulerAngles;
 			transform.LookAt(hit.point);
+			Debug.DrawRay(transform.position, hit.point, Color.blue);
 			transform.eulerAngles = new Vector3(rot.x, transform.eulerAngles.y, rot.z);
 		}
+
+		return hit;
+    }
+
+    private void Shoot(RaycastHit hit)
+    {
+	    if (Input.GetButtonDown("Fire1"))
+	    {
+		    Debug.Log(hit.transform.name);
+
+		    Target target = hit.transform.GetComponent<Target>();
+			if (target != null)
+			{
+				target.TakeDamage(Weapon.Damage);
+			}
+
+			Weapon.Shoot(hit);
+	    }
     }
 
     private void Jump()
