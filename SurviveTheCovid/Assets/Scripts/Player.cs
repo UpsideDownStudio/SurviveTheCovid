@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour
 {
-	public float speedMove;
-	public float jumpPower;
+	public float SpeedMove;
+	public float JumpPower;
 
 	public IWeapon Weapon;
 
@@ -38,10 +39,9 @@ public class Player : MonoBehaviour
 	    if (_controller.isGrounded)
 	    {
 		    _moveVector = Vector3.zero;
-			
-			//TO DO:
-		    _moveVector.x = Input.GetAxis("Horizontal") * speedMove;
-		    _moveVector.z = Input.GetAxis("Vertical") * speedMove;
+
+		    _moveVector.x = Input.GetAxis("Horizontal") * SpeedMove;
+		    _moveVector.z = Input.GetAxis("Vertical") * SpeedMove;
 
 		    /* Поворот игрока в сторону движения
 	        if (Vector3.Angle(Vector3.forward, _moveVector) > 1f || Vector3.Angle(Vector3.forward, _moveVector) == 0)
@@ -61,29 +61,26 @@ public class Player : MonoBehaviour
 	    Ray mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit = new RaycastHit();
 
+		Vector3 objPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
 		if (Physics.Raycast(mousePos, out hit))
 		{
 			Vector3 rot = transform.eulerAngles;
-			transform.LookAt(hit.point);
-			Debug.DrawRay(transform.position, hit.point, Color.blue);
-			transform.eulerAngles = new Vector3(rot.x, transform.eulerAngles.y, rot.z);
+
+			Quaternion targetRotation = Quaternion.LookRotation(hit.point - transform.position);
+			targetRotation.x = 0;
+			targetRotation.z = 0;
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 4f * Time.deltaTime);
+			Debug.DrawRay(transform.position, hit.point - transform.position, Color.blue);
 		}
 
 		return hit;
     }
-
+	
     private void Shoot(RaycastHit hit)
     {
 	    if (Input.GetButtonDown("Fire1"))
 	    {
-		    Debug.Log(hit.transform.name);
-
-		    Target target = hit.transform.GetComponent<Target>();
-			if (target != null)
-			{
-				target.TakeDamage(Weapon.Damage);
-			}
-
 			Weapon.Shoot(hit);
 	    }
     }
@@ -94,6 +91,6 @@ public class Player : MonoBehaviour
 	    else _gravityForce = -1f;
 
 	    if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded)
-		    _gravityForce = jumpPower;
+		    _gravityForce = JumpPower;
     }
 }

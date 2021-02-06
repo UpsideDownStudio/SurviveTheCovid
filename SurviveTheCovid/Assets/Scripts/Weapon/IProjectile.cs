@@ -2,9 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IProjectile
+public class IProjectile : MonoBehaviour
 {
-	float Speed { get; set; }
+	public float Speed;
+	public float Damage;
+	public float Range;
 
+	private Vector3 _distance;
 
+	void Start()
+	{
+		_distance = transform.position;
+	}
+
+	void Update()
+	{
+		CheckDistance();
+	}
+
+	public void CheckDistance()
+	{
+		if((transform.position - _distance).magnitude >= Range)
+			Destroy(gameObject);
+	}
 }

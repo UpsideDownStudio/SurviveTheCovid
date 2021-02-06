@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-	public float health = 50f;
+	public float Health = 50f;
 
 	public void TakeDamage(float damage)
 	{
-		health -= damage;
+		Health -= damage;
 
-		if (health <= 0f)
+		if (Health <= 0f)
 		{
 			Die();
 		}
@@ -19,5 +20,18 @@ public class Target : MonoBehaviour
 	private void Die()
 	{
 		Destroy(gameObject);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.CompareTag("Projectile"))
+		{
+			IProjectile projectile;
+			if (other.TryGetComponent(out projectile))
+			{
+				TakeDamage(projectile.Damage);
+				Destroy(projectile.gameObject);
+			}
+		}
 	}
 }

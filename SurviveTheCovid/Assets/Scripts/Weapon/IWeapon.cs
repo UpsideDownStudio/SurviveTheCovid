@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class IWeapon : MonoBehaviour
 {
-	public float Damage;
-	public float Range;
 	public float FireRate;
-	public GameObject Projectile;
+	public IProjectile Projectile;
+
 	public virtual void Shoot(RaycastHit hit) {}
+	
 }
