@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
 
 		return hit;
     }
-	
+
     private void Shoot(RaycastHit hit)
     {
 	    if (Input.GetButtonDown("Fire1"))
