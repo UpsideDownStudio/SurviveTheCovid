@@ -69,6 +69,9 @@
     <Compile Include="Assets\Scripts\Weapon\IProjectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
+    <Compile Include="Assets\Scripts\Weapon\RPG.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Rifle.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>W:/VisualStudioProjects/2019.4.19f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

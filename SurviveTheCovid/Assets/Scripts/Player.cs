@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.XR.WSA;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -19,11 +20,13 @@ public class Player : MonoBehaviour
 	private Vector3 _moveVector;
 
 	private CharacterController _controller;
+	private WeaponManager _weaponManager;
 
     // Start is called before the first frame update
     void Start()
     {
 	    _controller = GetComponent<CharacterController>();
+	    _weaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
     }
 
     // Update is called once per frame
@@ -70,7 +73,7 @@ public class Player : MonoBehaviour
 			Quaternion targetRotation = Quaternion.LookRotation(hit.point - transform.position);
 			targetRotation.x = 0;
 			targetRotation.z = 0;
-			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 4f * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
 			Debug.DrawRay(transform.position, hit.point - transform.position, Color.blue);
 		}
 
@@ -93,4 +96,15 @@ public class Player : MonoBehaviour
 	    if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded)
 		    _gravityForce = JumpPower;
     }
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Weapon"))
+		{
+			Debug.Log("Weapon: " + other.name);
+			_weaponManager.TakeWeapon(other.GetComponent<IWeapon>().WeaponIndex);
+			Destroy(other.gameObject);
+		}
+	}
+
 }
