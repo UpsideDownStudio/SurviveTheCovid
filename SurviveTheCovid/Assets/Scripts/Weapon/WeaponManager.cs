@@ -37,7 +37,8 @@ public class WeaponManager : MonoBehaviour
     {
 	    if (Input.GetKeyDown(KeyCode.R))
 	    {
-		    if (transform.childCount-1 < ++_currentWeaponIndex)
+		    _currentWeaponIndex++;
+		    if (WeaponsIndex.Count-1 < _currentWeaponIndex)
 		    {
 			    _currentWeaponIndex = 0;
 		    }
