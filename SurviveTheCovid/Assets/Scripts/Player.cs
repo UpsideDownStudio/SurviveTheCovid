@@ -82,10 +82,7 @@ public class Player : MonoBehaviour
 
     private void Shoot(RaycastHit hit)
     {
-	    if (Input.GetButtonDown("Fire1"))
-	    {
-			Weapon.Shoot(hit);
-	    }
+	    Weapon.Shoot(hit);
     }
 
     private void Jump()
@@ -102,7 +99,7 @@ public class Player : MonoBehaviour
 		if (other.CompareTag("Weapon"))
 		{
 			Debug.Log("Weapon: " + other.name);
-			_weaponManager.TakeWeapon(other.GetComponent<IWeapon>().WeaponIndex);
+			_weaponManager.TakeWeapon(other.GetComponent<IWeapon>().WeaponStats.WeaponIndex);
 			Destroy(other.gameObject);
 		}
 	}

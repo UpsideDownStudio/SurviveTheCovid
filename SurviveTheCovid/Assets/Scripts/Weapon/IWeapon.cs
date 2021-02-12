@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class IWeapon : MonoBehaviour
 {
-	public float FireRate;
-	public IProjectile Projectile;
-	public int WeaponIndex;
+	public WeaponStats WeaponStats;
+	private float nextTimeToFire = 0f;
 
 	public virtual void Shoot(RaycastHit hit)
 	{
-		GameObject proj = Instantiate(Projectile.gameObject, transform.position, Quaternion.identity);
-		proj.transform.forward = hit.point - transform.position;
-		proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * Projectile.Speed);
+		if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+		{
+			nextTimeToFire = Time.time + 1f / WeaponStats.FireRate;
+			GameObject proj = Instantiate(WeaponStats.Projectile.gameObject, transform.position, Quaternion.identity);
+			proj.transform.forward = hit.point - transform.position;
+			proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * WeaponStats.Projectile.Speed);
+		}
 	}
-
 }
