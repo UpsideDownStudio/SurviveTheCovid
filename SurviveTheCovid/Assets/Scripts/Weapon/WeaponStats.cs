@@ -8,6 +8,8 @@ public class WeaponStats : ScriptableObject
 	[SerializeField] private float _fireRate;
 	[SerializeField] private IProjectile _projectile;
 	[SerializeField] private int _weaponIndex;
+	//[SerializeField] private float _weaponDamageRadius;
+
 	public float FireRate
 	{
 		get => _fireRate;
@@ -22,4 +24,9 @@ public class WeaponStats : ScriptableObject
 	{
 		get => _weaponIndex;
 	}
+
+	/*public float WeaponDamageRadius
+	{
+		get => _weaponDamageRadius
+	}*/
 }

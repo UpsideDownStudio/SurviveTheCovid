@@ -6,16 +6,20 @@ using UnityEngine;
 public class IWeapon : MonoBehaviour
 {
 	public WeaponStats WeaponStats;
-	private float nextTimeToFire = 0f;
+	protected float _nextTimeToFire = 0f;
 
 	public virtual void Shoot(RaycastHit hit)
 	{
-		if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+		if (Input.GetButtonDown("Fire1") && Time.time >= _nextTimeToFire)
 		{
-			nextTimeToFire = Time.time + 1f / WeaponStats.FireRate;
-			GameObject proj = Instantiate(WeaponStats.Projectile.gameObject, transform.position, Quaternion.identity);
-			proj.transform.forward = hit.point - transform.position;
-			proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * WeaponStats.Projectile.Speed);
+			_nextTimeToFire = Time.time + 1f / WeaponStats.FireRate;
+			SpawnProjectile(hit);
 		}
+	}
+	public void SpawnProjectile(RaycastHit hit)
+	{
+		GameObject proj = Instantiate(WeaponStats.Projectile.gameObject, transform.position, Quaternion.identity);
+		proj.transform.forward = hit.point - transform.position;
+		proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * WeaponStats.Projectile.Speed);
 	}
 }

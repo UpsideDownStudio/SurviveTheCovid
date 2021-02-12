@@ -42,7 +42,7 @@ public class WeaponManager : MonoBehaviour
 		    {
 			    _currentWeaponIndex = 0;
 		    }
-		    SetWeapon(_currentWeaponIndex);
+		    SetWeapon(WeaponsIndex[_currentWeaponIndex]);
 	    }
     }
 

@@ -24,14 +24,14 @@ public class Target : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.CompareTag("Projectile"))
-		{
-			IProjectile projectile;
-			if (other.TryGetComponent(out projectile))
-			{
-				TakeDamage(projectile.Damage);
-				Destroy(projectile.gameObject);
-			}
-		}
+		//if (other.CompareTag("Projectile"))
+		//{
+		//	IProjectile projectile;
+		//	if (other.TryGetComponent(out projectile))
+		//	{
+		//		TakeDamage(projectile.Damage);
+		//		Destroy(projectile.gameObject);
+		//	}
+		//}
 	}
 }

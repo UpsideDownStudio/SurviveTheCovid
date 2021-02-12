@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 687355320212330954}
   - component: {fileID: -2439074175966753437}
   m_Layer: 0
-  m_Name: Cube (11)
+  m_Name: Pistol_Proj
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,4 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2000
   Damage: 50
-  Range: 500
+  Range: 100
