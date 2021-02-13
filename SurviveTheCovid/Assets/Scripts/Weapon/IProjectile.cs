@@ -33,7 +33,7 @@ public class IProjectile : MonoBehaviour
 		Gizmos.DrawWireSphere(transform.position, DamageRadius);
 	}
 
-	//TO DO: Реализовать урон по области.
+	//TODO: Реализовать урон по области.
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Enemy"))

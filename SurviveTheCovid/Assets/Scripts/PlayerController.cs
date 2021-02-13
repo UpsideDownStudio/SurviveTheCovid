@@ -5,8 +5,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
-	//TO DO: Сделать отдельные классы стрельбы
-	//TO
+	//TODO: Сделать отдельные классы стрельбы, хождения.
 
 	public float SpeedMove;
 	public float JumpPower;

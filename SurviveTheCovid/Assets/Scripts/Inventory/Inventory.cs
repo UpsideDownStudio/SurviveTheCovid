@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-	//TO DO: Переделать с Singleton на переменную в классе PlayerController
+	//TODO: Переделать с Singleton на переменную в классе PlayerController
 	#region Singleton
 
 	public static Inventory instance;

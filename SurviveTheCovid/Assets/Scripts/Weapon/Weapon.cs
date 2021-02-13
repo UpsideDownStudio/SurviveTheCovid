@@ -11,7 +11,6 @@ public class Weapon : ItemPickup
 	public override void Interact()
 	{
 		base.Interact();
-
 		WeaponManager.instance.AddWeapon(gameObject.GetComponent<Weapon>());
 	}
 
