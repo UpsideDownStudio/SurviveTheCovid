@@ -64,13 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Item.cs" />
+    <Compile Include="Assets\Scripts\Interactable\ItemPickup.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Target.cs" />
     <Compile Include="Assets\Scripts\Weapon\IProjectile.cs" />
-    <Compile Include="Assets\Scripts\Weapon\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
     <Compile Include="Assets\Scripts\Weapon\RPG.cs" />
     <Compile Include="Assets\Scripts\Weapon\Rifle.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponStats.cs" />
     <Reference Include="UnityEngine">

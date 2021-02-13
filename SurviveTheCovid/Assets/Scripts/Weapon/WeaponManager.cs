@@ -1,21 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WeaponManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public IWeapon CurrentWeapon;
-    public List<int> WeaponsIndex;
+	public static WeaponManager instance;
+
+	// Start is called before the first frame update
+    public Weapon CurrentWeapon;
+    public List<Weapon> Weapons = new List<Weapon>();
+    public List<int> WeaponsIndex = new List<int>();
 
     [SerializeField]
-    private Player _player;
+    private PlayerController playerController;
     [SerializeField]
     private int _currentWeaponIndex = 0;
 
+    private void Awake()
+    {
+	    if (instance != null)
+	    {
+            Debug.LogWarning("More than one instance of WeaponManager found!");
+            return;
+	    }
+
+	    instance = this;
+    }
+
     void Start()
     {
-	    _player = transform.parent.parent.GetComponent<Player>();
+	    playerController = transform.parent.parent.GetComponent<PlayerController>();
         SetWeapon();
     }
 
@@ -24,13 +40,18 @@ public class WeaponManager : MonoBehaviour
         SwitchWeapon();
     }
 
-    private void SetWeapon(int index = 0)
+    private void SetWeapon(Weapon weapon = null)
     {
-       if (WeaponsIndex.IndexOf(index) != -1)
-       {
-	       CurrentWeapon = transform.GetChild(index).GetComponent<IWeapon>();
-	       _player.Weapon = CurrentWeapon;
-       }
+	    if (CurrentWeapon == null)
+	    {
+		    CurrentWeapon = Weapons[0];
+	    }
+	    else
+	    {
+		    CurrentWeapon = weapon;
+	    }
+
+	    playerController.Weapon = CurrentWeapon;
     }
 
     public void SwitchWeapon()
@@ -38,17 +59,16 @@ public class WeaponManager : MonoBehaviour
 	    if (Input.GetKeyDown(KeyCode.R))
 	    {
 		    _currentWeaponIndex++;
-		    if (WeaponsIndex.Count-1 < _currentWeaponIndex)
+		    if (Weapons.Count-1 < _currentWeaponIndex)
 		    {
 			    _currentWeaponIndex = 0;
 		    }
-		    SetWeapon(WeaponsIndex[_currentWeaponIndex]);
+		    SetWeapon(Weapons[_currentWeaponIndex]);
 	    }
     }
 
-    public void TakeWeapon(int index)
+    public void AddWeapon(Weapon weapon)
     {
-        if(WeaponsIndex.IndexOf(index) == -1)
-	        WeaponsIndex.Add(index);
+	    Weapons.Add(weapon);
     }
 }
