@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using UnityEditor;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
-using UnityEngine.XR.WSA;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
+	//TO DO: Сделать отдельные классы стрельбы
+	//TO
+
 	public float SpeedMove;
 	public float JumpPower;
 
@@ -32,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Shoot(LookAt());
+	    Shoot(LookAt());
         MoveCharacter();
         Jump();
     }
@@ -88,12 +85,6 @@ public class PlayerController : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Weapon"))
-		{
-			Debug.Log("Weapon: " + other.name);
-			//other.GetComponent<Weapon>().Interact();
-			//Destroy(other.gameObject);
-		}
-	}
 
+	}
 }
