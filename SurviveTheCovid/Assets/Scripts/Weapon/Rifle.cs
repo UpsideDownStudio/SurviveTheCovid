@@ -6,9 +6,9 @@ public class Rifle : Weapon
 {
 	public override void Shoot(RaycastHit hit)
 	{
-		if (Input.GetButton("Fire1") && Time.time >= _nextTimeToFire)
+		if (Input.GetButton("Fire1") && Time.time >= NextTimeToFire)
 		{
-			_nextTimeToFire = Time.time + 1f / WeaponStats.FireRate;
+			NextTimeToFire = Time.time + 1f / weaponStats.FireRate;
 			SpawnProjectile(hit);
 		}
 	}

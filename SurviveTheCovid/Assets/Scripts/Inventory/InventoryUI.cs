@@ -2,43 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUi : MonoBehaviour
 {
 	public Transform itemsParent;
-	public GameObject inventoryUI;
+	[FormerlySerializedAs("inventoryUI")] public GameObject inventoryUi;
 
 	private Inventory _inventory;
-	private InventorySlot[] slots;
+	private InventorySlot[] _slots;
 
 	private void Start()
 	{
-		_inventory = Inventory.instance;
-		_inventory.OnItemChangedCallback += UpdateUI;
+		_inventory = Inventory.Instance;
+		_inventory.OnItemChangedCallback += UpdateUi;
 
-		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+		_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 
 	private void Update()
 	{
 		if (Input.GetButtonDown("Inventory"))
 		{
-			inventoryUI.SetActive(!inventoryUI.activeSelf);
+			inventoryUi.SetActive(!inventoryUi.activeSelf);
 		}
 
 	}
 
-	void UpdateUI()
+	void UpdateUi()
 	{
-		for (int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < _slots.Length; i++)
 		{
 			if (i < _inventory.items.Count)
 			{
-				slots[i].AddItem(_inventory.items[i]);
+				_slots[i].AddItem(_inventory.items[i]);
 			}
 			else
 			{
-				slots[i].ClearSlot();
+				_slots[i].ClearSlot();
 			}
 		}
 	}

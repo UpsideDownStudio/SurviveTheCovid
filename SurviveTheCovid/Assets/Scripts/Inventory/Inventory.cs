@@ -8,17 +8,17 @@ public class Inventory : MonoBehaviour
 	//TODO: Переделать с Singleton на переменную в классе PlayerController
 	#region Singleton
 
-	public static Inventory instance;
+	public static Inventory Instance;
 
 	private void Awake()
 	{
-		if (instance != null)
+		if (Instance != null)
 		{
 			Debug.Log("More than one instance of Inventory found!");
 			return;
 		}
 
-		instance = this;
+		Instance = this;
 	}
 
 	#endregion

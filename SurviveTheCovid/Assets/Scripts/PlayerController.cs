@@ -1,5 +1,6 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -7,10 +8,10 @@ public class PlayerController : MonoBehaviour
 {
 	//TODO: Сделать отдельные классы стрельбы, хождения.
 
-	public float SpeedMove;
-	public float JumpPower;
+	public float speedMove;
+	public float jumpPower;
 
-	public Weapon Weapon;
+	public Weapon weapon;
 
 	private float _gravityForce;
 	private Vector3 _moveVector;
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour
 	    {
 		    _moveVector = Vector3.zero;
 
-		    _moveVector.x = Input.GetAxis("Horizontal") * SpeedMove;
-		    _moveVector.z = Input.GetAxis("Vertical") * SpeedMove;
+		    _moveVector.x = Input.GetAxis("Horizontal") * speedMove;
+		    _moveVector.z = Input.GetAxis("Vertical") * speedMove;
 	    }
 
 	    _moveVector.y = _gravityForce;
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot(RaycastHit hit)
     {
-	    Weapon.Shoot(hit);
+	    weapon.Shoot(hit);
     }
 
     private void Jump()
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
 	    else _gravityForce = -1f;
 
 	    if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded)
-		    _gravityForce = JumpPower;
+		    _gravityForce = jumpPower;
     }
 
 	private void OnTriggerEnter(Collider other)

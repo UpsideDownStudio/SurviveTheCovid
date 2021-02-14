@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class IProjectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-	public float Speed;
-	public float Damage;
-	public float Range;
-	public float DamageRadius;
+	[FormerlySerializedAs("Speed")] public float speed;
+	[FormerlySerializedAs("Damage")] public float damage;
+	[FormerlySerializedAs("Range")] public float range;
+	[FormerlySerializedAs("DamageRadius")] public float damageRadius;
 
 	private Vector3 _distance;
 
@@ -23,14 +24,14 @@ public class IProjectile : MonoBehaviour
 
 	public void CheckDistance()
 	{
-		if((transform.position - _distance).magnitude >= Range)
+		if((transform.position - _distance).magnitude >= range)
 			Destroy(gameObject);
 	}
 
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.blue;
-		Gizmos.DrawWireSphere(transform.position, DamageRadius);
+		Gizmos.DrawWireSphere(transform.position, damageRadius);
 	}
 
 	//TODO: Реализовать урон по области.
@@ -41,7 +42,7 @@ public class IProjectile : MonoBehaviour
 			Target target;
 			if (other.TryGetComponent(out target))
 			{
-				target.TakeDamage(Damage);
+				target.TakeDamage(damage);
 				Destroy(gameObject);
 			}
 		}

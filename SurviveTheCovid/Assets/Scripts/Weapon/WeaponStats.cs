@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "ConfigEntity/Weapon", order = 0)]
 public class WeaponStats : ScriptableObject
 {
-	[SerializeField] private float _fireRate;
-	[SerializeField] private IProjectile _projectile;
-	[SerializeField] private int _weaponIndex;
+	[FormerlySerializedAs("_fireRate")] [SerializeField] private float fireRate;
+	[FormerlySerializedAs("_projectile")] [SerializeField] private Projectile projectile;
+	[FormerlySerializedAs("_weaponIndex")] [SerializeField] private int weaponIndex;
 	//[SerializeField] private float _weaponDamageRadius;
 
 	public float FireRate
 	{
-		get => _fireRate;
+		get => fireRate;
 	}
 
-	public IProjectile Projectile
+	public Projectile Projectile
 	{
-		get => _projectile;
+		get => projectile;
 	}
 
 	public int WeaponIndex
 	{
-		get => _weaponIndex;
+		get => weaponIndex;
 	}
 
 	/*public float WeaponDamageRadius

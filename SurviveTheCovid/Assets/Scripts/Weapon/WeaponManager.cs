@@ -6,27 +6,27 @@ using UnityEngine.Serialization;
 
 public class WeaponManager : MonoBehaviour
 {
-	public static WeaponManager instance;
+	public static WeaponManager Instance;
 
 	// Start is called before the first frame update
-    public Weapon CurrentWeapon;
-    public List<Weapon> Weapons = new List<Weapon>();
-    public List<int> WeaponsIndex = new List<int>();
+    [FormerlySerializedAs("CurrentWeapon")] public Weapon currentWeapon;
+    [FormerlySerializedAs("Weapons")] public List<Weapon> weapons = new List<Weapon>();
+    [FormerlySerializedAs("WeaponsIndex")] public List<int> weaponsIndex = new List<int>();
 
     [SerializeField]
     private PlayerController playerController;
-    [SerializeField]
-    private int _currentWeaponIndex = 0;
+    [FormerlySerializedAs("_currentWeaponIndex")] [SerializeField]
+    private int currentWeaponIndex = 0;
 
     private void Awake()
     {
-	    if (instance != null)
+	    if (Instance != null)
 	    {
             Debug.LogWarning("More than one instance of WeaponManager found!");
             return;
 	    }
 
-	    instance = this;
+	    Instance = this;
     }
 
     void Start()
@@ -42,33 +42,33 @@ public class WeaponManager : MonoBehaviour
 
     private void SetWeapon(Weapon weapon = null)
     {
-	    if (CurrentWeapon == null)
+	    if (currentWeapon == null)
 	    {
-		    CurrentWeapon = Weapons[0];
+		    currentWeapon = weapons[0];
 	    }
 	    else
 	    {
-		    CurrentWeapon = weapon;
+		    currentWeapon = weapon;
 	    }
 
-	    playerController.Weapon = CurrentWeapon;
+	    playerController.weapon = currentWeapon;
     }
 
     public void SwitchWeapon()
     {
 	    if (Input.GetKeyDown(KeyCode.R))
 	    {
-		    _currentWeaponIndex++;
-		    if (Weapons.Count-1 < _currentWeaponIndex)
+		    currentWeaponIndex++;
+		    if (weapons.Count-1 < currentWeaponIndex)
 		    {
-			    _currentWeaponIndex = 0;
+			    currentWeaponIndex = 0;
 		    }
-		    SetWeapon(Weapons[_currentWeaponIndex]);
+		    SetWeapon(weapons[currentWeaponIndex]);
 	    }
     }
 
     public void AddWeapon(Weapon weapon)
     {
-	    Weapons.Add(weapon);
+	    weapons.Add(weapon);
     }
 }

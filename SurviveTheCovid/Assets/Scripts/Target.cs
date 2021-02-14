@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Target : MonoBehaviour
 {
-	public float Health = 50f;
+	[FormerlySerializedAs("Health")] public float health = 50f;
 
 	public void TakeDamage(float damage)
 	{
-		Health -= damage;
+		health -= damage;
 
-		if (Health <= 0f)
+		if (health <= 0f)
 		{
 			Die();
 		}
