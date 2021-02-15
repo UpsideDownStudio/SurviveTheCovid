@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 42eb2357d88047b4eae6ac2a260e877c, type: 2}
-  WeaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
 --- !u!65 &94556178
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -241,9 +241,10 @@ GameObject:
   - component: {fileID: 140436851}
   - component: {fileID: 140436850}
   - component: {fileID: 140436849}
-  - component: {fileID: 140436848}
   - component: {fileID: 140436847}
   - component: {fileID: 140436853}
+  - component: {fileID: 140436848}
+  - component: {fileID: 140436854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -281,9 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ebf56f3820922449e181fda2ad8607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedMove: 10
-  JumpPower: 5
-  Weapon: {fileID: 0}
+  speedMove: 10
+  jumpPower: 5
+  weapon: {fileID: 0}
 --- !u!136 &140436849
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -384,6 +385,23 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &140436854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140436846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faedaed06fd93e459ec3b157a2d41e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
 --- !u!1 &160284341
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +520,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 4144154802307843148, guid: 986e93b1171e91445b40ae38a4a0155f,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 8385bbd5f1c06c346842dd5c2437be2b,
+        type: 2}
     - target: {fileID: 4144154802307843149, guid: 986e93b1171e91445b40ae38a4a0155f,
         type: 3}
       propertyPath: m_RootOrder
@@ -665,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1001 &246983014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1102,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &677156481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!65 &677156483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1243,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  WeaponStats: {fileID: 11400000, guid: dd565f2ddaa172d468dae8a4798cb84d, type: 2}
+  weaponStats: {fileID: 11400000, guid: dd565f2ddaa172d468dae8a4798cb84d, type: 2}
 --- !u!65 &686744982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1643,8 +1667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 42eb2357d88047b4eae6ac2a260e877c, type: 2}
-  WeaponStats: {fileID: 11400000, guid: b226d970c485102439e2415a81971ad7, type: 2}
+  item: {fileID: 11400000, guid: c75bdb1601d80ac43a7c8295a4fae1d1, type: 2}
+  weaponStats: {fileID: 11400000, guid: b226d970c485102439e2415a81971ad7, type: 2}
 --- !u!65 &766607971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1855,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!4 &861060892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5137835059462408292, guid: a253219c5f9710b4c96b3b660382d226,
@@ -2001,7 +2025,7 @@ GameObject:
   - component: {fileID: 906864772}
   - component: {fileID: 906864771}
   m_Layer: 0
-  m_Name: Pistol (1)
+  m_Name: Rifle
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2019,8 +2043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 42eb2357d88047b4eae6ac2a260e877c, type: 2}
-  WeaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  item: {fileID: 11400000, guid: c75bdb1601d80ac43a7c8295a4fae1d1, type: 2}
+  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
 --- !u!65 &906864772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2201,7 +2225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,9 +2322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca254fa237796747bb2ce5362e7a7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 140436852}
-  Smooth: 5
-  Offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 140436852}
+  smooth: 5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &969819148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &1169373661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,8 +2764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 8385bbd5f1c06c346842dd5c2437be2b, type: 2}
-  WeaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  item: {fileID: 11400000, guid: 5a36c73152d220743a879c50eb9d4a4d, type: 2}
+  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
 --- !u!65 &1215708622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3004,7 +3028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 279495913}
-  inventoryUI: {fileID: 722714520}
+  inventoryUi: {fileID: 722714520}
 --- !u!1 &1309070282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &1310529189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,7 +3242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &1330209495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,7 +3393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &1421427883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!65 &1421427885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3580,6 +3604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574202613}
   - component: {fileID: 1574202612}
+  - component: {fileID: 1574202614}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3615,6 +3640,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574202614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574202611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a86ef4de1e7286489505d00bae81805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579158884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,12 +3699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f199beb95e9cfcc419feeef1d67f94e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon: {fileID: 0}
-  Weapons:
+  currentWeapon: {fileID: 0}
+  weapons:
   - {fileID: 4144154802307843148, guid: 986e93b1171e91445b40ae38a4a0155f, type: 3}
-  WeaponsIndex: 00000000
+  weaponsIndex: 00000000
   playerController: {fileID: 0}
-  _currentWeaponIndex: 0
+  currentWeaponIndex: 0
 --- !u!65 &1579158887
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3787,7 +3824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1001 &1676410946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3975,6 +4012,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5137835059462408293, guid: a253219c5f9710b4c96b3b660382d226,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 42eb2357d88047b4eae6ac2a260e877c,
+        type: 2}
     - target: {fileID: 5137835059462408295, guid: a253219c5f9710b4c96b3b660382d226,
         type: 3}
       propertyPath: m_Name
@@ -4026,7 +4069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!65 &1835733941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4207,7 +4250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e09087ec158840a914c71274384da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  health: 50
 --- !u!1 &2003953119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,7 +4358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  WeaponStats: {fileID: 0}
+  weaponStats: {fileID: 0}
 --- !u!1001 &2106674794
 PrefabInstance:
   m_ObjectHideFlags: 0

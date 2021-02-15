@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class InventoryUi : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
 	public Transform itemsParent;
 	[FormerlySerializedAs("inventoryUI")] public GameObject inventoryUi;

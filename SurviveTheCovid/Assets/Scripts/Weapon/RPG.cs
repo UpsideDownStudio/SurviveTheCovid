@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rpg : Weapon
+public class RPG : Weapon
 {
 }
