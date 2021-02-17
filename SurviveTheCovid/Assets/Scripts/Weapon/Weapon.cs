@@ -6,8 +6,13 @@ using UnityEngine.Serialization;
 
 public class Weapon : ItemPickup
 {
-	[FormerlySerializedAs("WeaponStats")] public WeaponStats weaponStats;
-	protected float NextTimeToFire = 0f;
+	protected float nextTimeToFire = 0f;
+	protected WeaponStats weaponStats;
+
+	private void Start()
+	{
+		weaponStats = item as WeaponStats;
+	}
 
 	public override void Interact()
 	{
@@ -17,16 +22,16 @@ public class Weapon : ItemPickup
 
 	public virtual void Shoot(RaycastHit hit)
 	{
-		if (Input.GetButtonDown("Fire1") && Time.time >= NextTimeToFire)
+		if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
 		{
-			NextTimeToFire = Time.time + 1f / weaponStats.FireRate;
+			nextTimeToFire = Time.time + 1f / weaponStats.fireRate;
 			SpawnProjectile(hit);
 		}
 	}
 	public void SpawnProjectile(RaycastHit hit)
 	{
-		GameObject proj = Instantiate(weaponStats.Projectile.gameObject, transform.position, Quaternion.identity);
-		proj.transform.forward = hit.point - transform.position;
-		proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * weaponStats.Projectile.speed);
+		//GameObject proj = Instantiate(weaponStats.Projectile.gameObject, transform.position, Quaternion.identity);
+		//proj.transform.forward = hit.point - transform.position;
+		//proj.GetComponent<Rigidbody>().AddForce(proj.transform.forward * weaponStats.Projectile.speed);
 	}
 }

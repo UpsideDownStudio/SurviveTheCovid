@@ -153,8 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 42eb2357d88047b4eae6ac2a260e877c, type: 2}
-  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  item: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
 --- !u!65 &94556178
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -400,8 +399,11 @@ MonoBehaviour:
   maxHealth: 100
   damage:
     baseValue: 0
+  fireRate:
+    baseValue: 0
   armor:
     baseValue: 0
+  weaponStats: {fileID: 0}
 --- !u!1 &160284341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,8 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  weaponStats: {fileID: 11400000, guid: dd565f2ddaa172d468dae8a4798cb84d, type: 2}
+  item: {fileID: 11400000, guid: dd565f2ddaa172d468dae8a4798cb84d, type: 2}
 --- !u!65 &686744982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1667,8 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c75bdb1601d80ac43a7c8295a4fae1d1, type: 2}
-  weaponStats: {fileID: 11400000, guid: b226d970c485102439e2415a81971ad7, type: 2}
+  item: {fileID: 11400000, guid: b226d970c485102439e2415a81971ad7, type: 2}
 --- !u!65 &766607971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2043,8 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: c75bdb1601d80ac43a7c8295a4fae1d1, type: 2}
-  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  item: {fileID: 11400000, guid: b226d970c485102439e2415a81971ad7, type: 2}
 --- !u!65 &906864772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2764,8 +2763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa471808360abf34d86122cb650556df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 5a36c73152d220743a879c50eb9d4a4d, type: 2}
-  weaponStats: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
+  item: {fileID: 11400000, guid: 86d677beee23bf8459457b47971388c7, type: 2}
 --- !u!65 &1215708622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4358,7 +4356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  weaponStats: {fileID: 0}
 --- !u!1001 &2106674794
 PrefabInstance:
   m_ObjectHideFlags: 0

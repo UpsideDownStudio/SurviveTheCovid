@@ -11,7 +11,6 @@ public class Item : ScriptableObject
 	{
 		//Использование предмета
 		//Здесь прописывается поведения при использовании
-
 		Debug.Log("Using " + name);
 	}
 

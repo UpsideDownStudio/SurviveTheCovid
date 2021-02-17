@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    // Start is called before the first frame update
+	public WeaponStats weaponStats;
+
     void Start()
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
@@ -15,20 +16,22 @@ public class PlayerStats : CharacterStats
 	{
 		if(newItem != null)
 		{
-			damage.AddModifiers(newItem.damageModifier);
-			armor.AddModifiers(newItem.armorModifier);
+			WeaponStats weaponStats = newItem as WeaponStats;
+			if(weaponStats != null)
+			{
+				damage.AddModifiers(weaponStats.damage);
+				fireRate.AddModifiers(weaponStats.fireRate);
+			}
 		}
 		
 		if(oldItem != null)
 		{
-			damage.DeleteModifier(oldItem.damageModifier);
-			armor.DeleteModifier(oldItem.armorModifier);
+			WeaponStats weaponStats = oldItem as WeaponStats;
+			if (weaponStats != null)
+			{
+				damage.DeleteModifier(weaponStats.damage);
+				fireRate.DeleteModifier(weaponStats.fireRate);
+			}
 		}
-	}
-
-	// Update is called once per frame
-	void Update()
-    {
-        
-    }
+	}	
 }

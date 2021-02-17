@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-	public int maxHealth = 100;
-	public int currentHealth { get; private set; }
+	public float maxHealth = 100;
+	public float currentHealth { get; private set; }
 
 	public Stat damage;
+	public Stat fireRate;
 	public Stat armor;
 
 	private void Awake()
@@ -23,7 +24,7 @@ public class CharacterStats : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(float damage)
 	{
 		damage -= armor.GetValue();
 		damage = Mathf.Clamp(damage, 0, int.MaxValue);

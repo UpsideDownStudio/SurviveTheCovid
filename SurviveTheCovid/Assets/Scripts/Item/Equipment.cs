@@ -10,20 +10,10 @@ public class Equipment : Item
 	public override void Use()
 	{
 		base.Use();
-		EquipmentManager.instance.Equip(this);
-		RemoveFromInventory();
 	}
-
-	public int damageModifier;
-	public int armorModifier;
 }
 
 public enum EquipmentSlot
 {
-	Head, 
-	Chest,
-	Legs,
-	Weapon,
-	Shield, 
-	Feet
+	Weapon
 }
