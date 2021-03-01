@@ -6,19 +6,22 @@ using UnityEngine;
 public class PlayerStats : CharacterStats
 {
 	public WeaponStats weaponStats;
+	private EquipmentManager _equipmentManager;
 
     void Start()
     {
-        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+		_equipmentManager = FindObjectOfType<EquipmentManager>();
+        _equipmentManager.onEquipmentChanged += OnEquipmentChanged;
     }
 
 	private void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
 	{
 		if(newItem != null)
 		{
-			WeaponStats weaponStats = newItem as WeaponStats;
+			weaponStats = newItem as WeaponStats;
 			if(weaponStats != null)
 			{
+				Debug.Log("Weapon is not null " + weaponStats.damage);
 				damage.AddModifiers(weaponStats.damage);
 				fireRate.AddModifiers(weaponStats.fireRate);
 			}

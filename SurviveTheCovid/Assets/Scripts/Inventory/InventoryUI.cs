@@ -9,13 +9,13 @@ public class InventoryUI : MonoBehaviour
 	public Transform itemsParent;
 	[FormerlySerializedAs("inventoryUI")] public GameObject inventoryUi;
 
-	private Inventory _inventory;
+	private PlayerInventory _playerInventory;
 	private InventorySlot[] _slots;
 
 	private void Start()
 	{
-		_inventory = Inventory.Instance;
-		_inventory.OnItemChangedCallback += UpdateUi;
+		_playerInventory = FindObjectOfType<PlayerInventory>();
+		_playerInventory.OnItemChangedCallback += UpdateUi;
 
 		_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
@@ -33,9 +33,9 @@ public class InventoryUI : MonoBehaviour
 	{
 		for (int i = 0; i < _slots.Length; i++)
 		{
-			if (i < _inventory.items.Count)
+			if (i < _playerInventory.items.Count)
 			{
-				_slots[i].AddItem(_inventory.items[i]);
+				_slots[i].AddItem(_playerInventory.items[i]);
 			}
 			else
 			{

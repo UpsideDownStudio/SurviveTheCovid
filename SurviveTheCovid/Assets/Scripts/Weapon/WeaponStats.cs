@@ -13,7 +13,7 @@ public class WeaponStats : Equipment
 	public override void Use()
 	{
 		base.Use();
-		EquipmentManager.instance.Equip(this);
+		FindObjectOfType<EquipmentManager>().Equip(this);
 		RemoveFromInventory();
 	}
 }

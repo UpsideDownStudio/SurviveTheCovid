@@ -8,83 +8,51 @@ public class PlayerController : MonoBehaviour
 {
 	//TODO: Сделать отдельные классы стрельбы, хождения.
 
-	public float speedMove;
-	public float jumpPower;
-
-	public Weapon weapon;
-
-	private float _gravityForce;
-	private Vector3 _moveVector;
-
-	private CharacterController _controller;
+	private PlayerMovement _playerMovement;
+	private PlayerShooting _playerShooting;
+	private CharacterController _characterController;
 	private WeaponManager _weaponManager;
+	private PlayerInventory _playerInventory;
 
-    // Start is called before the first frame update
-    void Start()
+	public CharacterController CharacterController 
+	{ 
+		get => _characterController;
+		private set => _characterController = value;
+	}
+	public WeaponManager WeaponManager
+	{
+		get => _weaponManager;
+		private set => _weaponManager = value;
+	}
+	public PlayerShooting PlayerShooting
+	{
+		get => _playerShooting;
+		private set => _playerShooting = value;
+	}
+	public PlayerMovement PlayerMovement
+	{
+		get => _playerMovement;
+		private set => _playerMovement = value;
+	}
+	public PlayerInventory PlayerInventory
+	{
+		get => _playerInventory;
+		private set => _playerInventory = value;
+	}
+
+
+	// Start is called before the first frame update
+	void Start()
     {
-	    _controller = GetComponent<CharacterController>();
-	    _weaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
+		PlayerMovement = GetComponent<PlayerMovement>();
+		PlayerShooting = GetComponent<PlayerShooting>();
+		CharacterController = GetComponent<CharacterController>();
+	    WeaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-	    Shoot(LookAt());
-        MoveCharacter();
-        Jump();
+
     }
-
-    private void MoveCharacter()
-    {
-	    if (_controller.isGrounded)
-	    {
-		    _moveVector = Vector3.zero;
-
-		    _moveVector.x = Input.GetAxis("Horizontal") * speedMove;
-		    _moveVector.z = Input.GetAxis("Vertical") * speedMove;
-	    }
-
-	    _moveVector.y = _gravityForce;
-	    _controller.Move(_moveVector * Time.deltaTime); //Передвижение по направлению
-    }
-
-    private RaycastHit LookAt()
-    {
-	    Ray mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit = new RaycastHit();
-
-		Vector3 objPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-		if (Physics.Raycast(mousePos, out hit))
-		{
-			Vector3 rot = transform.eulerAngles;
-
-			Quaternion targetRotation = Quaternion.LookRotation(hit.point - transform.position);
-			targetRotation.x = 0;
-			targetRotation.z = 0;
-			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
-			Debug.DrawRay(transform.position, hit.point - transform.position, Color.blue);
-		}
-
-		return hit;
-    }
-
-    private void Shoot(RaycastHit hit)
-    {
-	    weapon.Shoot(hit);
-    }
-
-    private void Jump()
-    {
-	    if (!_controller.isGrounded) _gravityForce -= 20f * Time.deltaTime;
-	    else _gravityForce = -1f;
-
-	    if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded)
-		    _gravityForce = jumpPower;
-    }
-
-	private void OnTriggerEnter(Collider other)
-	{
-
-	}
 }

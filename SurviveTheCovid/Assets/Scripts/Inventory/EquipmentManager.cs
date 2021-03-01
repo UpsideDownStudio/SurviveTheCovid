@@ -4,29 +4,15 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-	#region Singleton
-	public static EquipmentManager instance;
-
-	private void Awake()
-	{
-		if (instance != null)
-		{
-			Debug.Log("The instance of Equipment Manager already exist");
-			return;
-		}
-		instance = this;
-	}
-	#endregion
-
 	public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
 	public event OnEquipmentChanged onEquipmentChanged;
 
-	Equipment[] currentEquipment;
-	Inventory inventory;
+	private Equipment[] currentEquipment;
+	private PlayerInventory _playerInventory;
 
 	private void Start()
 	{
-		inventory = Inventory.Instance;
+		_playerInventory = FindObjectOfType<PlayerInventory>();
 
 		int equipmentCount = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
 		currentEquipment = new Equipment[equipmentCount];
@@ -35,13 +21,12 @@ public class EquipmentManager : MonoBehaviour
 	public void Equip(Equipment newItem)
 	{
 		int equipmentSlotIndex = (int)newItem.equipSlot;
-
 		Equipment oldItem = null;
 
 		if(currentEquipment[equipmentSlotIndex] != null)
 		{
 			oldItem = currentEquipment[equipmentSlotIndex];
-			inventory.Add(oldItem);
+			_playerInventory.Add(oldItem);
 		}
 
 		onEquipmentChanged?.Invoke(newItem, oldItem);
@@ -54,7 +39,7 @@ public class EquipmentManager : MonoBehaviour
 		if (currentEquipment[equipmentIndex] != null)
 		{
 			Equipment oldItem = currentEquipment[equipmentIndex];
-			inventory.Add(oldItem);
+			_playerInventory.Add(oldItem);
 
 			onEquipmentChanged?.Invoke(null, oldItem);
 

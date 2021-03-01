@@ -6,16 +6,16 @@ using UnityEngine.Serialization;
 
 public class WeaponManager : MonoBehaviour
 {
-	public static WeaponManager Instance;
+    public static WeaponManager Instance;
 
-	// Start is called before the first frame update
-    [FormerlySerializedAs("CurrentWeapon")] public Weapon currentWeapon;
-    [FormerlySerializedAs("Weapons")] public List<Weapon> weapons = new List<Weapon>();
-    [FormerlySerializedAs("WeaponsIndex")] public List<int> weaponsIndex = new List<int>();
+    // Start is called before the first frame update
+    public Weapon currentWeapon;
+    public List<Weapon> weapons = new List<Weapon>();
+    public List<int> weaponsIndex = new List<int>();
 
     [SerializeField]
-    private PlayerController playerController;
-    [FormerlySerializedAs("_currentWeaponIndex")] [SerializeField]
+    private PlayerController _playerController;
+    [SerializeField]
     private int currentWeaponIndex = 0;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-	    playerController = transform.parent.parent.GetComponent<PlayerController>();
+	    _playerController = transform.parent.parent.GetComponent<PlayerController>();
         SetWeapon();
     }
 
@@ -51,7 +51,7 @@ public class WeaponManager : MonoBehaviour
 		    currentWeapon = weapon;
 	    }
 
-	    playerController.weapon = currentWeapon;
+	    _playerController.PlayerShooting.weapon = currentWeapon;
     }
 
     public void SwitchWeapon()
