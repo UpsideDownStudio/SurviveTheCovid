@@ -11,7 +11,6 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     public Weapon currentWeapon;
     public List<Weapon> weapons = new List<Weapon>();
-    public List<int> weaponsIndex = new List<int>();
 
     [SerializeField]
     private PlayerController _playerController;
@@ -32,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 	    _playerController = transform.parent.parent.GetComponent<PlayerController>();
-        SetWeapon();
+        //SetWeapon();
     }
 
     void Update()
@@ -50,8 +49,6 @@ public class WeaponManager : MonoBehaviour
 	    {
 		    currentWeapon = weapon;
 	    }
-
-	    _playerController.PlayerShooting.weapon = currentWeapon;
     }
 
     public void SwitchWeapon()

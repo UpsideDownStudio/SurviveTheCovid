@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 	//TODO: Сделать отдельные классы стрельбы, хождения.
 
 	private PlayerMovement _playerMovement;
-	private PlayerShooting _playerShooting;
+	private PlayerWeapon _playerWeapon;
 	private CharacterController _characterController;
 	private WeaponManager _weaponManager;
 	private PlayerInventory _playerInventory;
@@ -24,10 +24,10 @@ public class PlayerController : MonoBehaviour
 		get => _weaponManager;
 		private set => _weaponManager = value;
 	}
-	public PlayerShooting PlayerShooting
+	public PlayerWeapon PlayerWeapon
 	{
-		get => _playerShooting;
-		private set => _playerShooting = value;
+		get => _playerWeapon;
+		private set => _playerWeapon = value;
 	}
 	public PlayerMovement PlayerMovement
 	{
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 	void Start()
     {
 		PlayerMovement = GetComponent<PlayerMovement>();
-		PlayerShooting = GetComponent<PlayerShooting>();
+		PlayerWeapon = GetComponent<PlayerWeapon>();
 		CharacterController = GetComponent<CharacterController>();
 	    WeaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
     }

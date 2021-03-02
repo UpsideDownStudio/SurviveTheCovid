@@ -6,9 +6,11 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "Weapon", menuName = "ConfigEntity/Weapon", order = 0)]
 public class WeaponStats : Equipment
 {
+	public int weaponIndex;
 	public float fireRate;
 	public float damage;
-	public float weaponIndex;
+	public float speedProjectile;
+	public GameObject projectile;
 
 	public override void Use()
 	{

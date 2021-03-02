@@ -68,13 +68,13 @@
     <Compile Include="Assets\Scripts\Inventory\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Interactable.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPickup.cs" />
+    <Compile Include="Assets\Scripts\NewScripts\Player\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\NewScripts\Player\PlayerShooting.cs" />
+    <Compile Include="Assets\Scripts\NewScripts\Player\PlayerWeapon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\PlayerStats.cs" />

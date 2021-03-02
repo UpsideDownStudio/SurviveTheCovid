@@ -16,6 +16,9 @@ MonoBehaviour:
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   isDefaultItem: 0
   equipSlot: 0
-  fireRate: 1000
-  damage: 25
   weaponIndex: 1
+  fireRate: 20
+  damage: 25
+  speedProjectile: 1000
+  projectile: {fileID: 414106984755998829, guid: 2e96b95e641b84047b504b58c62ed1c9,
+    type: 3}

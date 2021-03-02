@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 414106984755998827}
   - component: {fileID: 414106984755998828}
   - component: {fileID: 7015820965434002422}
-  - component: {fileID: 3959335938680282975}
   m_Layer: 0
   m_Name: Rifle_Proj
   m_TagString: Projectile
@@ -111,18 +110,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3959335938680282975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414106984755998829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5869efc7f034a514b89ad2ea51ceb957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 2000
-  Damage: 25
-  Range: 100

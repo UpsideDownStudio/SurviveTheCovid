@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-	public WeaponStats weaponStats;
 	private EquipmentManager _equipmentManager;
+	private PlayerController _playerController;
 
     void Start()
     {
+	    _playerController = GetComponent<PlayerController>();
 		_equipmentManager = FindObjectOfType<EquipmentManager>();
         _equipmentManager.onEquipmentChanged += OnEquipmentChanged;
     }
@@ -18,10 +19,10 @@ public class PlayerStats : CharacterStats
 	{
 		if(newItem != null)
 		{
-			weaponStats = newItem as WeaponStats;
+			var weaponStats = newItem as WeaponStats;
 			if(weaponStats != null)
 			{
-				Debug.Log("Weapon is not null " + weaponStats.damage);
+				_playerController.PlayerWeapon.SetWeapon(weaponStats.weaponIndex);
 				damage.AddModifiers(weaponStats.damage);
 				fireRate.AddModifiers(weaponStats.fireRate);
 			}
