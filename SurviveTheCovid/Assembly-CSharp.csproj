@@ -76,6 +76,10 @@
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerWeapon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SpawnDrop\AirDropInventory.cs" />
+    <Compile Include="Assets\Scripts\SpawnDrop\AirDropSpawn.cs" />
+    <Compile Include="Assets\Scripts\SpawnDrop\AirDropUI.cs" />
+    <Compile Include="Assets\Scripts\SpawnDrop\SpawnDropManager.cs" />
     <Compile Include="Assets\Scripts\Stats\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Stats\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stat.cs" />

@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class InventoryUI : MonoBehaviour
 {
 	public Transform itemsParent;
-	[FormerlySerializedAs("inventoryUI")] public GameObject inventoryUi;
+	public GameObject inventoryUi;
 
 	private PlayerInventory _playerInventory;
 	private InventorySlot[] _slots;
@@ -20,13 +20,12 @@ public class InventoryUI : MonoBehaviour
 		_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 
-	private void Update()
+	void Update()
 	{
-		if (Input.GetButtonDown("Inventory"))
-		{
-			inventoryUi.SetActive(!inventoryUi.activeSelf);
-		}
-
+		// if (Input.GetKeyDown("Inventory"))
+		// {
+		// 	inventoryUi.SetActive(!(inventoryUi.activeSelf));
+		// }
 	}
 
 	void UpdateUi()
