@@ -14,6 +14,11 @@ public class Item : ScriptableObject
 		Debug.Log("Using " + name);
 	}
 
+	public void RemoveFromAirDropInventory()
+	{
+		FindObjectOfType<AirDropUI>().CurrentAirDropBox.RemoveItemsFromBoxInventory(this);
+	}
+
 	public virtual void RemoveFromInventory()
 	{
 		FindObjectOfType<PlayerInventory>().Remove(this);

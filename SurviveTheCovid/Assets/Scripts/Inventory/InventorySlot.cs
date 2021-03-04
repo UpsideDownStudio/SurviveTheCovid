@@ -31,6 +31,14 @@ public class InventorySlot : MonoBehaviour
 		FindObjectOfType<PlayerInventory>().Remove(_item);
 	}
 
+	public void TakeAirDropItem()
+	{
+		if (_item != null)
+		{
+			_item.RemoveFromAirDropInventory();
+		}
+	}
+
 	public void UseItem()
 	{
 		if (_item != null)

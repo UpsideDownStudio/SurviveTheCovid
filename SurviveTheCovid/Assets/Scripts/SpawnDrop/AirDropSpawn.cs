@@ -6,7 +6,7 @@ public class AirDropSpawn : MonoBehaviour
 {
     public List<Item> itemsSpawnList;
     public List<GameObject> spawnPointDrop;
-    
+
     private List<Item> _dropBoxItems;
 
     public GameObject airDropBoxObject;
@@ -21,12 +21,11 @@ public class AirDropSpawn : MonoBehaviour
     {
 	    var rndPos = Random.Range(0, spawnPointDrop.Count);
 
-	    var airDropBox = airDropBoxObject.GetComponent<AirDropInventory>();
+	    var airDropBox = airDropBoxObject.GetComponent<AirDropBox>();
 	    var capacity = airDropBox.GenerateInventoryCapacity();                      //Вызов генерации размера инвентаря в ящике
         var itemsList = GenerateItems(capacity);                                    //Генерация определенного количества случайных предметов.
         airDropBox.AddItemsToBoxInventory(itemsList);                               //Добавление предметов в инвентарь ящика.
         Instantiate(airDropBoxObject, spawnPointDrop[rndPos].transform.position, Quaternion.identity); //Спавн ящика в определенном месте
-        airDropBox.UpdateAirDropUi(itemsList);
     }
 
     private List<Item> GenerateItems(int capacity)

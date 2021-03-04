@@ -6,12 +6,12 @@ public class AirDropUI : MonoBehaviour
 {
 	public Transform itemsParent;
 	public GameObject inventoryUi;
+	public AirDropBox CurrentAirDropBox;
 
 	private InventorySlot[] _slots;
 
 	private void Start()
 	{
-		inventoryUi.SetActive(true);
 		_slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
 
