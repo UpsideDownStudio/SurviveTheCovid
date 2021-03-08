@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Models\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\GrabItem\PlayerGrabManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />

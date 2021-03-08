@@ -22,10 +22,10 @@ public class InventoryUI : MonoBehaviour
 
 	void Update()
 	{
-		// if (Input.GetKeyDown("Inventory"))
-		// {
-		// 	inventoryUi.SetActive(!(inventoryUi.activeSelf));
-		// }
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+			inventoryUi.SetActive(!(inventoryUi.activeSelf));
+		}
 	}
 
 	void UpdateUi()

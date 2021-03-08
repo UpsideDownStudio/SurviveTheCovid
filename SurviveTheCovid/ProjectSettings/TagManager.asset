@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Weapon
   - Enemy
+  - Draggable
   layers:
   - Default
   - TransparentFX
