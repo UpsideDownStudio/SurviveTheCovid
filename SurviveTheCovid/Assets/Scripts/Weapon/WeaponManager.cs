@@ -31,7 +31,7 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 	    _playerController = transform.parent.parent.GetComponent<PlayerController>();
-        //SetWeapon();
+        //AddWeapon();
     }
 
     void Update()

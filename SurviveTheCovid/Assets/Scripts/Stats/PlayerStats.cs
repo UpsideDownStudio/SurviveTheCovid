@@ -22,20 +22,43 @@ public class PlayerStats : CharacterStats
 			var weaponStats = newItem as WeaponStats;
 			if(weaponStats != null)
 			{
-				_playerController.PlayerWeapon.SetWeapon(weaponStats.weaponIndex);
-				damage.AddModifiers(weaponStats.damage);
-				fireRate.AddModifiers(weaponStats.fireRate);
+				_playerController.PlayerWeapon.AddWeapon(weaponStats.weaponIndex);
+				//damage.AddModifiers(weaponStats.damage);
+				//fireRate.AddModifiers(weaponStats.fireRate);
 			}
 		}
-		
+
 		if(oldItem != null)
 		{
-			WeaponStats weaponStats = oldItem as WeaponStats;
-			if (weaponStats != null)
-			{
-				damage.DeleteModifier(weaponStats.damage);
-				fireRate.DeleteModifier(weaponStats.fireRate);
-			}
+			//WeaponStats weaponStats = oldItem as WeaponStats;
+			//if (weaponStats != null)
+			//{
+			//	damage.DeleteModifier(weaponStats.damage);
+			//	fireRate.DeleteModifier(weaponStats.fireRate);
+			//}
 		}
-	}	
+	}
+
+	public void SwitchWeapon(WeaponStats newWeapon)
+	{
+		ChangeWeaponState(newWeapon);
+	}
+
+	public void InitializeWeapon(WeaponStats weapon)
+	{
+		if (weapon != null)
+		{
+			damage.AddModifiers(weapon.damage);
+			fireRate.AddModifiers(weapon.fireRate);
+		}
+	}
+
+	private void ChangeWeaponState(WeaponStats newWeapon)
+	{
+		if (newWeapon != null)
+		{
+			damage.SwitchModifier(newWeapon.damage);
+			fireRate.SwitchModifier(newWeapon.fireRate);
+		}
+	}
 }

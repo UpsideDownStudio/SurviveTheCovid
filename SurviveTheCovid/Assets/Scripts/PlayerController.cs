@@ -6,16 +6,15 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
-	//TODO: Сделать отдельные классы стрельбы, хождения.
-
 	private PlayerMovement _playerMovement;
 	private PlayerWeapon _playerWeapon;
 	private CharacterController _characterController;
 	private WeaponManager _weaponManager;
 	private PlayerInventory _playerInventory;
+	private PlayerStats _playerStats;
 
-	public CharacterController CharacterController 
-	{ 
+	public CharacterController CharacterController
+	{
 		get => _characterController;
 		private set => _characterController = value;
 	}
@@ -40,6 +39,12 @@ public class PlayerController : MonoBehaviour
 		private set => _playerInventory = value;
 	}
 
+	public PlayerStats PlayerStats
+	{
+		get => _playerStats;
+		private set => _playerStats = value;
+	}
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -47,7 +52,8 @@ public class PlayerController : MonoBehaviour
 		PlayerMovement = GetComponent<PlayerMovement>();
 		PlayerWeapon = GetComponent<PlayerWeapon>();
 		CharacterController = GetComponent<CharacterController>();
-	    WeaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
+		PlayerStats = GetComponent<PlayerStats>();
+		WeaponManager = transform.GetChild(1).GetChild(0).GetComponent<WeaponManager>();
     }
 
     // Update is called once per frame

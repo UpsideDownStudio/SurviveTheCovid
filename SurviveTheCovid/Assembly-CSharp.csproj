@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Models\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
@@ -74,6 +75,10 @@
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\NewScripts\Player\PlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\PlayerClass\HealerPlayerClass.cs" />
+    <Compile Include="Assets\Scripts\PlayerClass\PlayerClass.cs" />
+    <Compile Include="Assets\Scripts\PlayerClass\PlayerClassManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerClass\PlayerClassStat.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SpawnDrop\AirDropBox.cs" />
     <Compile Include="Assets\Scripts\SpawnDrop\AirDropSpawn.cs" />
@@ -83,8 +88,8 @@
     <Compile Include="Assets\Scripts\Stats\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stat.cs" />
     <Compile Include="Assets\Scripts\Target.cs" />
-    <Compile Include="Assets\Scripts\Weapon\IProjectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\RPG.cs" />
     <Compile Include="Assets\Scripts\Weapon\Rifle.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />

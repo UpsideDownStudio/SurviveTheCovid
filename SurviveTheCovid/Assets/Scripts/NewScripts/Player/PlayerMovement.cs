@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
 	private PlayerController _playerController;
 
+	public Vector3 moveVector { get; private set; }
+
     void Start()
     {
-		_playerController = GetComponent<PlayerController>();	    
+	    _playerController = GetComponent<PlayerController>();
     }
 
 	private void Update()
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
 			_moveVector.x = Input.GetAxis("Horizontal") * speedMove;
 			_moveVector.z = Input.GetAxis("Vertical") * speedMove;
+			moveVector = _moveVector;
 		}
 
 		_moveVector.y = _gravityForce;

@@ -7,15 +7,17 @@ public class PlayerWeapon : MonoBehaviour
 	public List<Weapon> weaponList;
 	public GameObject weaponInventory;
 
-	[SerializeField] private Weapon _currentWeapon;
+	private Weapon _currentWeapon;
 	private PlayerController _playerController;
-	[SerializeField] private int _currentWeaponListIndex;
+	private int _currentWeaponListIndex;
 
     private void Start()
     {
 	    _currentWeapon = weaponList[0];
 	    _currentWeaponListIndex = 0;
-		_playerController = GetComponent<PlayerController>();
+
+	    _playerController = GetComponent<PlayerController>();
+	    _playerController.PlayerStats.InitializeWeapon(_currentWeapon.weaponStats);
 	}
 
 	private void Update()
@@ -35,7 +37,7 @@ public class PlayerWeapon : MonoBehaviour
 		}
 	}
 
-	public void SetWeapon(int index)
+	public void AddWeapon(int index)
 	{
 		_currentWeaponListIndex++;
 
@@ -56,8 +58,16 @@ public class PlayerWeapon : MonoBehaviour
 			if (index > 1)
 				index = 0;
 
-			_currentWeapon = weaponList[index];
-			_currentWeaponListIndex = index;
+			if (weaponList[index] != null)
+			{
+				_currentWeapon = weaponList[index];
+				_currentWeaponListIndex = index;
+				_playerController.PlayerStats.SwitchWeapon(_currentWeapon.weaponStats);
+			}
+			else
+			{
+				index--;
+			}
 		}
 	}
 }
