@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+	public int indexOfItem;
+
 	public Image icon;
 	public Button removeButton;
 

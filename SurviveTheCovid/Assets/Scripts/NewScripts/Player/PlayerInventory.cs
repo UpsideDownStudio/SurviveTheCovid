@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 	private PlayerController _playerController;
+	private InventoryUI _inventoryUi;
 
 	public delegate void OnItemChanged();
 	public OnItemChanged OnItemChangedCallback;
@@ -16,6 +17,12 @@ public class PlayerInventory : MonoBehaviour
 	private void Start()
 	{
 		_playerController = GetComponent<PlayerController>();
+		_inventoryUi = FindObjectOfType<InventoryUI>();
+
+		for (int i = 0; i < _inventoryUi.itemsParent.childCount; i++)
+		{
+			_inventoryUi.itemsParent.GetChild(i).GetComponent<InventorySlot>().indexOfItem = i;
+		}
 	}
 
 	public bool Add(Item item)
@@ -38,6 +45,15 @@ public class PlayerInventory : MonoBehaviour
     public void Remove(Item item)
     {
 	    items.Remove(item);
+	    OnItemChangedCallback?.Invoke();
+	}
+
+    public void Switch(int firstItem, int secondItem)
+    {
+	    var tmpItem = items[firstItem];
+	    items[firstItem] = items[secondItem];
+	    items[secondItem] = tmpItem;
+
 	    OnItemChangedCallback?.Invoke();
 	}
 }

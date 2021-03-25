@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdc8f0ce3c9bac49a22bbbca0a4eb60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexOfItem: 0
   icon: {fileID: 2156663917008966062}
   removeButton: {fileID: 2156663917134071962}
 --- !u!1 &2156663915915841262
@@ -193,6 +194,8 @@ GameObject:
   - component: {fileID: 2156663917008966057}
   - component: {fileID: 2156663917008966063}
   - component: {fileID: 2156663917008966062}
+  - component: {fileID: 152919320}
+  - component: {fileID: 152919321}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -256,6 +259,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &152919320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156663917008966056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050484941a3d0f478b30c8732def9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoveredIndexOfItem: -1
+--- !u!225 &152919321
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156663917008966056}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2156663917134071972
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,8 @@ public class PlayerGrabManager : MonoBehaviour
 		{
 			if (Input.GetKey(KeyCode.F))
 			{
-				dragItem = other.gameObject;
+				if(dragItem == null)
+					dragItem = other.gameObject;
 			}
 		}
 	}
