@@ -90,6 +90,8 @@
     <Compile Include="Assets\Scripts\Stats\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Stats\Stat.cs" />
     <Compile Include="Assets\Scripts\Target.cs" />
+    <Compile Include="Assets\Scripts\Wave\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Wave\WaveManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Weapon\RPG.cs" />

@@ -4560,6 +4560,8 @@ GameObject:
   - component: {fileID: 1574202614}
   - component: {fileID: 1574202615}
   - component: {fileID: 1574202612}
+  - component: {fileID: 1574202617}
+  - component: {fileID: 1574202616}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4630,6 +4632,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airDropSpawn: {fileID: 0}
+--- !u!114 &1574202616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574202611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f27b4fb046e0cb4c865638747a066fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyEnemyList:
+  - {fileID: 4144154802307843146, guid: 986e93b1171e91445b40ae38a4a0155f, type: 3}
+  - {fileID: 8608948148700837267, guid: 5864858e6f59f754daf52d808f411fd5, type: 3}
+  - {fileID: 5137835059462408295, guid: a253219c5f9710b4c96b3b660382d226, type: 3}
+  - {fileID: 2496508367707888770, guid: adafcb371ee002a4485102263746c11e, type: 3}
+  - {fileID: 7884674717443301969, guid: 507daa614257c674b8dcdc4707c0528e, type: 3}
+  mediumEnemyList: []
+  hardEnemyList: []
+  bossList: []
+--- !u!114 &1574202617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574202611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b8df8ac6f792e4084babcc1a681421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textOfWaveTimer: {fileID: 0}
+  textOfTimeNextWave: {fileID: 0}
+  textOfWaveCountEnemy: {fileID: 0}
+  enemySpawner: {fileID: 1574202616}
+  spawnPointsList:
+  - {fileID: 198031794}
+  - {fileID: 662348968}
+  - {fileID: 265784922}
+  - {fileID: 1817963676}
+  - {fileID: 1817963676}
 --- !u!1 &1579158884
 GameObject:
   m_ObjectHideFlags: 0
