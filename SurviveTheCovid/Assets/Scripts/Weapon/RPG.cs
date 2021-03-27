@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class RPG : Weapon
+﻿namespace Assets.Scripts.Weapon
 {
+	public class RPG : Weapon
+	{
+	}
 }

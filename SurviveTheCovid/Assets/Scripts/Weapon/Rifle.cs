@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Rifle : Weapon
+namespace Assets.Scripts.Weapon
 {
-	public override void Shoot(RaycastHit hit)
+	public class Rifle : Weapon
 	{
-		if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+		public override void Shoot(RaycastHit hit)
 		{
-			nextTimeToFire = Time.time + 1f / weaponStats.fireRate;
-			SpawnProjectile(hit);
+			if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+			{
+				nextTimeToFire = Time.time + 1f / weaponStats.fireRate;
+				SpawnProjectile(hit);
+			}
 		}
 	}
 }

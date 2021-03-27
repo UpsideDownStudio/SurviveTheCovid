@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Assets.Scripts.Weapon;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
 	public List<Weapon> weaponList;
 	public GameObject weaponInventory;
+	public Transform firePoint;
 
 	private Weapon _currentWeapon;
 	private PlayerController _playerController;

@@ -19,6 +19,6 @@ MonoBehaviour:
   weaponIndex: 0
   fireRate: 3
   damage: 50
-  speedProjectile: 1000
+  speedProjectile: 4900
   projectile: {fileID: 7884674717443301969, guid: 507daa614257c674b8dcdc4707c0528e,
     type: 3}

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Pistol : Weapon
+﻿namespace Assets.Scripts.Weapon
 {
+	public class Pistol : Weapon
+	{
 
+	}
 }

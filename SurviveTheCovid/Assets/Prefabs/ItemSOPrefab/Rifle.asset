@@ -17,8 +17,8 @@ MonoBehaviour:
   isDefaultItem: 0
   equipSlot: 0
   weaponIndex: 1
-  fireRate: 20
+  fireRate: 1e+26
   damage: 25
-  speedProjectile: 1000
+  speedProjectile: 4900
   projectile: {fileID: 414106984755998829, guid: 2e96b95e641b84047b504b58c62ed1c9,
     type: 3}
