@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	private PlayerMovement _playerMovement;
+	private PlayerMovementAnimation _playerMovement;
 	private PlayerWeapon _playerWeapon;
 	private CharacterController _characterController;
 	private WeaponManager _weaponManager;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 		get => _playerWeapon;
 		private set => _playerWeapon = value;
 	}
-	public PlayerMovement PlayerMovement
+	public PlayerMovementAnimation PlayerMovement
 	{
 		get => _playerMovement;
 		private set => _playerMovement = value;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		PlayerMovement = GetComponent<PlayerMovement>();
+		PlayerMovement = GetComponent<PlayerMovementAnimation>();
 		PlayerWeapon = GetComponent<PlayerWeapon>();
 		CharacterController = GetComponent<CharacterController>();
 		PlayerStats = GetComponent<PlayerStats>();
